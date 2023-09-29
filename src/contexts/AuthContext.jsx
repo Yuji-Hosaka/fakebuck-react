@@ -6,19 +6,20 @@ export const AuthContext = createContext();
 
 export default function AuthContextProvider({ children }) {
   const [authUser, setAuthUser] = useState(null);
-  
-  const login = async credential => {
+
+  const login = async (credential) => {
     try {
-        const res = await axios.post('/auth/login', credential)
-        console.log(res)
-        addAccessToken(res.data.accessToken)
-        setAuthUser(res.data.user)
-    } catch(err) {
-        console.log(err)
+      const res = await axios.post("/auth/login", credential);
+      console.log(res);
+      addAccessToken(res.data.accessToken);
+      setAuthUser(res.data.user);
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
-    <AuthContext.Provider value={{ login }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ login, authUser }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
-
