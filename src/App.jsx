@@ -1,6 +1,7 @@
-function App() {
+import Route from "./router/Route"
 
-  return <div className=" text-orange-500 text-5xl">App component</div>
+function App() {
+  return <Route />
 
 }
 
