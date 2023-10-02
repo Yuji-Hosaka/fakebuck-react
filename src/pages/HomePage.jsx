@@ -1,3 +1,7 @@
 export default function HomePage() {
-  return <div>HomePage</div>;
+  return (
+    <h1>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat alias assumenda minus distinctio qui ducimus optio, velit cum culpa omnis, tenetur nisi possimus numquam autem, iusto ab dolore molestias? Facere alias est ullam veritatis saepe repudiandae, incidunt mollitia quibusdam iste voluptate magnam eveniet dolore porro, dolor in nam aliquid beatae exercitationem assumenda sint necessitatibus explicabo? Aliquid voluptatibus et provident veniam iusto iure ea, sunt, laudantium possimus fugit, distinctio minus! Recusandae, assumenda necessitatibus. Pariatur saepe cum et odio tempora provident ut ipsum quo at praesentium, voluptatem expedita ipsa fugiat porro beatae quae architecto impedit voluptate vel rerum modi dicta inventore optio. Quisquam architecto suscipit nesciunt! Dolorum voluptate accusantium officia explicabo vero doloremque dolore sed nesciunt dignissimos, porro aliquid. Odio temporibus, nulla doloremque ut natus inventore et aspernatur asperiores eius obcaecati quidem, aut magnam qui deleniti, debitis non? Aut, enim amet. Fuga ab error ipsa est totam nesciunt laborum ea maxime. Mollitia ducimus dolore corporis quae doloremque, iusto repellendus rerum rem similique quod. Adipisci asperiores aliquam vitae voluptas assumenda delectus, ab nemo esse dolorem ducimus provident fugit minus inventore quia temporibus repudiandae similique amet atque sint enim mollitia repellat commodi error. Modi voluptatibus fugiat non ab minima corporis ex harum numquam perspiciatis.
+    </h1>
+  )
 }

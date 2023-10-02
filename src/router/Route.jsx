@@ -5,11 +5,16 @@ import HomePage from "../pages/HomePage";
 import FriendPage from "../pages/FriendPage";
 import ProfilePage from "../pages/ProfilePage";
 import RedirectIfAuthenticated from "../features/auth/RedirectIfAuthenticated";
+import Authenticated from "../features/auth/Authenticated";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: (
+    <Authenticated>
+      <Layout />,
+    </Authenticated>
+    ),
     children: [
       { path: "", element: <HomePage /> },
       { path: "friend", element: <FriendPage /> },
