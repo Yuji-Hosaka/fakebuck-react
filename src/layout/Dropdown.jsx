@@ -7,15 +7,13 @@ import { useAuth } from "../hooks/use-auth";
 export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const dropDwonEl = useRef(null);
-  // console.log('after useRef', dropDwonEl)
+  const dropDownEl = useRef(null);
 
-  const { logout } = useAuth();
+  const { logout, authUser } = useAuth();
 
   useEffect(() => {
-    // console.log('effect', dropDwonEl)
     const handleClickOutside = (e) => {
-      if (!dropDwonEl.current.contains(e.target)) {
+      if (!dropDownEl.current.contains(e.target)) {
         setIsOpen(false);
       }
     };
@@ -28,7 +26,7 @@ export default function Dropdown() {
   }, []);
 
   return (
-    <div className=" relative" ref={dropDwonEl}>
+    <div className=" relative" ref={dropDownEl}>
       <div className=" cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
         <Avatar />
       </div>
@@ -38,7 +36,7 @@ export default function Dropdown() {
             <div className=" flex gap-4 p-2 items-center rounded-xl hover:bg-gray-100">
               <Avatar className=" h-14" />
               <div>
-                <div className=" font-semibold"> John Cena</div>
+                <div className=" font-semibold"> {authUser.firstName} {authUser.lastName}</div>
                 <div className=" text-sm text-gray-500">See your profile</div>
               </div>
             </div>
