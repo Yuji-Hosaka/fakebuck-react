@@ -1,6 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "../config/axios";
-import { addAccessToken, getAccessToken, removeAccessToken } from "../utils/local-storage";
+import {
+  addAccessToken,
+  getAccessToken,
+  removeAccessToken,
+} from "../utils/local-storage";
 
 export const AuthContext = createContext();
 
@@ -24,12 +28,10 @@ export default function AuthContextProvider({ children }) {
   }, []);
 
   const login = async (credential) => {
-    
-      const res = await axios.post("/auth/login", credential);
-      // console.log(res);
-      addAccessToken(res.data.accessToken);
-      setAuthUser(res.data.user);
-    
+    const res = await axios.post("/auth/login", credential);
+    // console.log(res);
+    addAccessToken(res.data.accessToken);
+    setAuthUser(res.data.user);
   };
 
   const register = async (registerInputObject) => {
@@ -38,14 +40,15 @@ export default function AuthContextProvider({ children }) {
     setAuthUser(res.data.user);
   };
 
-const logout = () => {
-  removeAccessToken()
-  setAuthUser(null)
-}
-
+  const logout = () => {
+    removeAccessToken();
+    setAuthUser(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ login, authUser, initialLoading, register, logout }}>
+    <AuthContext.Provider
+      value={{ login, authUser, initialLoading, register, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

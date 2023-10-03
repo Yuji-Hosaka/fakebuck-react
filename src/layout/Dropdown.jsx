@@ -36,7 +36,10 @@ export default function Dropdown() {
             <div className=" flex gap-4 p-2 items-center rounded-xl hover:bg-gray-100">
               <Avatar className=" h-14" />
               <div>
-                <div className=" font-semibold"> {authUser.firstName} {authUser.lastName}</div>
+                <div className=" font-semibold">
+                  {" "}
+                  {authUser.firstName} {authUser.lastName}
+                </div>
                 <div className=" text-sm text-gray-500">See your profile</div>
               </div>
             </div>
