@@ -1,16 +1,34 @@
 import Avatar from "../components/Avatar";
 import { Link } from "react-router-dom";
 import { RightFromBracketIcon } from "../icons";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuth } from "../hooks/use-auth";
 
 export default function Dropdown() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const dropDwonEl = useRef(null);
+  // console.log('after useRef', dropDwonEl)
+
   const { logout } = useAuth();
 
+  useEffect(() => {
+    // console.log('effect', dropDwonEl)
+    const handleClickOutside = (e) => {
+      if (!dropDwonEl.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className=" relative">
+    <div className=" relative" ref={dropDwonEl}>
       <div className=" cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
         <Avatar />
       </div>
