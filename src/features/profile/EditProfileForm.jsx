@@ -5,7 +5,8 @@ import { useAuth } from "../../hooks/use-auth";
 import { useState } from "react";
 import Loading from "../../components/Loading";
 
-export default function EditProfileForm() {
+
+export default function EditProfileForm({onSuccess}) {
   const [loading, setLoading] = useState(false);
   const { authUser, updateProfile } = useAuth();
 
@@ -16,6 +17,7 @@ export default function EditProfileForm() {
       formData.append("profileImage", input);
       setLoading(true);
       await updateProfile(formData);
+      onSuccess()
     } catch (err) {
       console.log(err);
     } finally {
@@ -30,6 +32,7 @@ export default function EditProfileForm() {
       formData.append("coverImage", input);
       setLoading(true);
       await updateProfile(formData);
+      onSuccess()
     } catch (err) {
       console.log(err);
     } finally {
