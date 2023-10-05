@@ -13,8 +13,8 @@ export default function ProfileInfo({
   const mappingObj = {
     AUTH_USER: <AuthUserAction />,
     UNKNOWN: <UnknownAction setStatusWithAuthUser={setStatusWithAuthUser} />,
-    FRIEND: <FriendAction />,
-    REQUESTER: <RequesterAction />,
+    FRIEND: <FriendAction setStatusWithAuthUser={setStatusWithAuthUser}/>,
+    REQUESTER: <RequesterAction setStatusWithAuthUser = {setStatusWithAuthUser} />,
     RECEIVER: <ReceiverAction setStatusWithAuthUser={setStatusWithAuthUser} />,
   };
 
