@@ -5,15 +5,19 @@ import ReceiverAction from "./ReceiverAction";
 import RequesterAction from "./RequesterAction";
 import UnknownAction from "./UnknownAction";
 
-const mappingObj = {
-  AUTH_USER: <AuthUserAction/>,
-  UNKNOWN: <UnknownAction/>,
-  FRIEND: <FriendAction/>,
-  REQUESTER: <RequesterAction/>,
-  RECEIVER: <ReceiverAction/>
-}
+export default function ProfileInfo({
+  profileUser,
+  statusWithAuthUser,
+  setStatusWithAuthUser,
+}) {
+  const mappingObj = {
+    AUTH_USER: <AuthUserAction />,
+    UNKNOWN: <UnknownAction setStatusWithAuthUser={setStatusWithAuthUser} />,
+    FRIEND: <FriendAction />,
+    REQUESTER: <RequesterAction />,
+    RECEIVER: <ReceiverAction setStatusWithAuthUser={setStatusWithAuthUser} />,
+  };
 
-export default function ProfileInfo({ profileUser, statusWithAuthUser }) {
   return (
     <div className=" max-w-6xl mx-auto flex gap-4 px-4 items-end">
       <div className=" mt-8">
@@ -36,9 +40,7 @@ export default function ProfileInfo({ profileUser, statusWithAuthUser }) {
           <Avatar className=" h-8" />
         </div>
       </div>
-      <div>
-        {mappingObj[statusWithAuthUser]}
-      </div>
+      <div>{mappingObj[statusWithAuthUser]}</div>
     </div>
   );
 }

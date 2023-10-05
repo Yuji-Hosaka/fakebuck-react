@@ -11,6 +11,7 @@ export default function ProfilePage() {
   const { profileId } = useParams();
 
   const { authUser } = useAuth();
+  const isAuthUser = authUser.id === +profileId;
 
   useEffect(() => {
     axios
@@ -28,10 +29,15 @@ export default function ProfilePage() {
     <div className=" bg-gradient-to-b from-gray-200 to-white shadow pb-4">
       {profileUser ? (
         <>
-          <ProfileCover coverImage={profileUser?.coverImage} />
+          <ProfileCover
+            coverImage={
+              isAuthUser ? authUser.coverImage : profileUser?.coverImage
+            }
+          />
           <ProfileInfo
-            profileUser={profileUser}
+            profileUser={isAuthUser ? authUser : profileUser}
             statusWithAuthUser={statusWithAuthUser}
+            setStatusWithAuthUser={setStatusWithAuthUser}
           />
         </>
       ) : (
