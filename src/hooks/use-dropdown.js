@@ -7,7 +7,7 @@ function useDropdown() {
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (!dropDownEl.current.contains(e.target)) {
+      if (!dropDownEl.current?.contains(e.target)) {
         setIsOpen(false);
       }
     };
